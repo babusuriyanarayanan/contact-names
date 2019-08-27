@@ -17,7 +17,8 @@ export class ContactComponent implements OnInit {
   contactForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('',Validators.required),
-    phone: new FormControl('')
+    phone: new FormControl(''),
+    favorite: new FormControl('')
     
   });
 
@@ -33,11 +34,13 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm.reset();
+    this.contactForm.get('favorite').setValue(false);
     if(this.formData != null) {
       this.contactForm.setValue({
         name: this.formData.name, 
         email: this.formData.email,
-        phone: this.formData.phone
+        phone: this.formData.phone,
+        favorite : this.formData.favorite
       });  
       this.isEditContact = true;
     }

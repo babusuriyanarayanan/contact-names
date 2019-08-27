@@ -3,7 +3,9 @@
 
 .pos-row {
     margin-top: 56px;
-    // background-color: red;
+    > div {
+        padding: 0px;
+    }
 }
 
 }

@@ -1,16 +1,16 @@
-<div class="row" >
-        <div class="col-xs-6 col-sm-6">
+<div class="row row-hdr" >
+        <div>
             <span> Contacts </span>
         </div>
-        <div class="col-xs-6 col-sm-6">
+        <div class="pos-align-right">
                 <span> <button type="button" class="btn btn-primary" (click)="openDialog(content)">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Contact</button></span>
         </div>
 
 </div>
 
-<div class="row">
-              <div class="card" style="width: 30rem;">
+<div class="">
+              <div class="card">
                     <ul class="list-group list-group-flush">
                       
                       <li class="list-group-item pos-row" *ngFor="let item of savedContactArr;let i = index">
@@ -21,7 +21,7 @@
                                     <div> {{item.phone}}</div>
                             </div>
                             <div class="pos-col-3"> 
-                                    <div><ui-switch [checked]="false"></ui-switch> </div>
+                                    <div><ui-switch [checked]="item.favorite" (change)="onFavToggle(item, $event)"></ui-switch> </div>
                                     <div><button type="button" class="btn btn-primary pos-fill" (click)="editDialog(item, content)">Edit</button> </div>
                             </div>
 
