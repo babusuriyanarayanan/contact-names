@@ -1,0 +1,21 @@
+.pos-center {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+.pos-row {
+    display: flex;
+}
+
+.pos-col-1 {
+    flex: 20%;
+  }
+
+  .pos-col-2 {
+    flex: 50%;
+  }  
+  .pos-col-3 {
+    flex: 30%;
+  } 
