@@ -10,8 +10,8 @@ import { MessageserviceService } from 'src/app/services/messageservice.service';
 export class ContactComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter();
-  @Input() formData;
-
+  @Input() formData = null;
+  isEditContact:boolean = false;
   
 
   contactForm = new FormGroup({
@@ -32,13 +32,18 @@ export class ContactComponent implements OnInit {
   constructor(private messageService: MessageserviceService) { }
 
   ngOnInit() {
-    console.log("check form data value");
-    console.log(this.formData);
+    this.contactForm.reset();
+    if(this.formData != null) {
+      this.contactForm.setValue({
+        name: this.formData.name, 
+        email: this.formData.email,
+        phone: this.formData.phone
+      });  
+      this.isEditContact = true;
+    }
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.log(this.contactForm.value);
     this.valueChange.emit(this.contactForm.value);
     this.contactForm.reset();
   }

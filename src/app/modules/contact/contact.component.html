@@ -10,7 +10,8 @@
 
         </div>
         <div class="input-group ">
-                <input id="email" class="form-item" type="text" formControlName="email" email placeholder="Enter your email">
+                <input id="email" class="form-item" type="text" formControlName="email" email 
+                placeholder="Enter your email" [readonly]="isEditContact">
                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
                         <div *ngIf="email.errors.required; else emailName">
                         Email is required.

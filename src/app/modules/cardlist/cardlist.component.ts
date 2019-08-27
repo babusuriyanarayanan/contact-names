@@ -33,12 +33,30 @@ export class CardlistComponent implements OnInit {
   }
 
   openDialog(content) {
-    this.modalRef = this.modalService.open(content, { centered: true });
+    this.formDataValue = null;
+    this.modalRef = this.modalService.open(content, { windowClass: 'modal-holder', centered: true });
+  }
+
+  editDialog(item, content) {
+    this.formDataValue = item;
+    this.modalRef = this.modalService.open(content, { windowClass: 'modal-holder', centered: true });
   }
 
   onChange(event) {
     var cList = JSON.parse(localStorage.getItem("contact-list")) || [];
-    cList.push(event);
+    let isContactExist = false;
+    if(cList.length >0) {
+      for (let i=0; i<cList.length;i++) {
+        if(cList[i].email === event.email) {
+          isContactExist = true;
+          Object.assign(cList[i], event);
+        }
+      }
+    } 
+    if(!isContactExist) {
+      cList.push(event);
+    }
+    
     localStorage.setItem('contact-list',JSON.stringify(cList));
     this.messageService.changeMessage("published");
     this.modalRef.close();

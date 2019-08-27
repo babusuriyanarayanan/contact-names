@@ -22,7 +22,7 @@
                             </div>
                             <div class="pos-col-3"> 
                                     <div><ui-switch [checked]="false"></ui-switch> </div>
-                                    <div><button type="button" class="btn btn-primary pos-fill">Edit</button> </div>
+                                    <div><button type="button" class="btn btn-primary pos-fill" (click)="editDialog(item, content)">Edit</button> </div>
                             </div>
 
 
@@ -33,6 +33,7 @@
     </div>
 
     <ng-template #content let-modal>
+        <div class="content-modal">
             <div class="modal-header">
                     <h4 class="modal-title" id="modal-basic-title">Contact Form</h4>
                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -48,5 +49,5 @@
                     <!-- (click)="modal.close('Save click') -->
                    <!-- <button type="button" class="btn btn-outline-dark" (click)="closeDialog($event)">Save</button>
                   </div> -->
-                 
+            </div>
     </ng-template>
