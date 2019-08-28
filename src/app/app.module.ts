@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MessageserviceService } from './services/messageservice.service';
 import { FooterComponent } from './modules/footer/footer.component';
 import {DropdownModule} from 'primeng/dropdown';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import {DropdownModule} from 'primeng/dropdown';
     DropdownModule,
     BrowserAnimationsModule
   ],
-  providers: [MessageserviceService],
+  providers: [MessageserviceService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
