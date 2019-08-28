@@ -1,33 +1,53 @@
-<div class="row" >
-        <div class="col-xs-6 col-sm-6">
+<div class="row row-hdr" >
+        <div>
             <span> Contacts </span>
         </div>
-        <div class="col-xs-6 col-sm-6">
-                <span> <button type="button" class="btn btn-primary">
+        <div class="pos-align-right">
+                <span> <button type="button" class="btn btn-primary" (click)="openDialog(content)">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Contact</button></span>
         </div>
 
 </div>
 
-<div class="row">
-              <div class="card" style="width: 30rem;">
+<div class="">
+              <div class="card">
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item pos-row">
+                      
+                      <li class="list-group-item pos-row" *ngFor="let item of savedContactArr;let i = index">
                             <div class="pos-col-1"> <i class="card-img fa fa-user-circle-o fa-4x" aria-hidden="true"></i></div>
                             <div class="pos-col-2"> 
-                                    <div> Babu Suriyanarayanan</div>
-                                    <div> babu28537@gmail</div>
-                                    <div> +91 98329382989</div>
+                                    <div> {{item.name}}</div>
+                                    <div> {{item.email}}</div>
+                                    <div> {{item.phone}}</div>
                             </div>
                             <div class="pos-col-3"> 
-                                    <div><ui-switch [checked]="false"></ui-switch> </div>
-                                    <div><button type="button" class="btn btn-primary">Edit</button> </div>
+                                    <div><ui-switch [checked]="item.favorite" (change)="onFavToggle(item, $event)"></ui-switch> </div>
+                                    <div><button type="button" class="btn btn-primary pos-fill" (click)="editDialog(item, content)">Edit</button> </div>
                             </div>
 
 
                       </li>
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                      <li class="list-group-item">Vestibulum at eros</li>
+                   
                     </ul>
                   </div>
     </div>
+
+    <ng-template #content let-modal>
+        <div class="content-modal">
+            <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Contact Form</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  
+                    <app-contact (valueChange)="onChange($event)" [formData]="formDataValue"></app-contact>
+                  </div>
+                  <div class="modal-footer"></div>
+                  <!-- <div class="modal-footer"> -->
+                    <!-- (click)="modal.close('Save click') -->
+                   <!-- <button type="button" class="btn btn-outline-dark" (click)="closeDialog($event)">Save</button>
+                  </div> -->
+            </div>
+    </ng-template>

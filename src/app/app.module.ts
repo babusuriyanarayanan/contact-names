@@ -8,6 +8,11 @@ import { ContentComponent } from './modules/content/content.component';
 import { SidebarComponent } from './modules/sidebar/sidebar.component';
 import { CardlistComponent } from './modules/cardlist/cardlist.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './modules/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MessageserviceService } from './services/messageservice.service';
+import { FooterComponent } from './modules/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +20,18 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     HeaderComponent,
     ContentComponent,
     SidebarComponent,
-    CardlistComponent
+    CardlistComponent,
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UiSwitchModule
+    UiSwitchModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MessageserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

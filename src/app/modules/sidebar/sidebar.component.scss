@@ -1,6 +1,37 @@
 .pos-center {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
+    background-color: #e2beac;
+    
   }
+
+  .pos-pointer {
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .pos-liked {
+    color: Mediumslateblue;
+  }
+  .pos-notliked {
+    color: Dodgerblue;
+  }
+
+  @media only screen and (max-width: 575.98px) {
+    .pos-center {
+      width: 100%;
+      display: inline-block;
+      padding-left: 0px;
+    }
+
+    .pos-pointer {
+      display: inline-block;
+    }
+
+  } 
+
+  @media only screen and (min-width: 576px) {
+    .pos-center {
+      min-height: 90vh;
+      // max-width: 85px;
+    }
+
+  } 

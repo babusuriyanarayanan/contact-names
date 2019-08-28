@@ -1,0 +1,33 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  
+        <div class="input-group ">
+        <input id="name"  class="form-item" type="text" formControlName="name" placeholder="Enter your name">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <div *ngIf="name.errors.required">
+                        Name is required.
+                        </div>
+             </div> 
+
+        </div>
+        <div class="input-group ">
+                <input id="email" class="form-item" type="text" formControlName="email" email 
+                placeholder="Enter your email" [readonly]="isEditContact">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required; else emailName">
+                        Email is required.
+                        </div>
+                        <ng-template #emailName>
+                                    Invalid Email Address
+                        </ng-template>
+             </div>
+         </div>
+         <div class="input-group ">
+               <input id="phone" class="form-item" type="tel" formControlName="phone" placeholder="Enter your phone">
+         </div>
+         <div class="btn-submit">
+         <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
+            </div>
+        
+         
+
+</form>
