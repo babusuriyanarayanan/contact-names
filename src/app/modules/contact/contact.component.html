@@ -21,9 +21,25 @@
                         </ng-template>
              </div>
          </div>
+         
          <div class="input-group ">
-               <input id="phone" class="form-item" type="tel" formControlName="phone" placeholder="Enter your phone">
+                       
+                       <!-- <select name = "sel1" id="sel1" formControlName="code" aria-placeholder="areacode" class="areacode">
+                                        
+                                        <option *ngFor="let codes of areaCode" value= {{codes.id}}
+                                        [selected]="code">
+                                           {{codes.name}}
+                                        </option>
+                                      </select> -->
+                                      <p-dropdown [options]="areaCode"  class="areacode"
+                                      formControlName="code"
+                                      optionLabel="name" [showClear]="true"></p-dropdown>
+     
+                <input id="phone" class="form-item form-item-custom" maxlength="15" type="text" formControlName="phone" placeholder="Enter your phone" onkeyup="this.value=this.value.replace(/[^\d]/g,'')"> 
+               
          </div>
+         
+         
          <div class="btn-submit">
          <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
             </div>

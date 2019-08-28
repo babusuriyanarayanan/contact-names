@@ -13,6 +13,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.0",
+    "@angular/cdk": "^8.1.4",
     "@angular/common": "~8.2.0",
     "@angular/compiler": "~8.2.0",
     "@angular/core": "~8.2.0",
@@ -27,6 +28,8 @@
     "jquery": "^3.4.1",
     "ngx-ui-switch": "^8.2.0",
     "popper.js": "^1.15.0",
+    "primeicons": "^2.0.0",
+    "primeng": "^8.0.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "underscore": "^1.9.1",

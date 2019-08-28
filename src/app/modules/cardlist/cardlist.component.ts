@@ -86,7 +86,6 @@ export class CardlistComponent implements OnInit {
   onFavToggle(item, toggleValue) {
    
     item.favorite = toggleValue;
-    console.log(item);
     this.onChange(item, true);
   }
 
