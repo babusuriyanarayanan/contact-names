@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/header/header.component';
@@ -13,6 +13,7 @@ import { ContactComponent } from './modules/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageserviceService } from './services/messageservice.service';
 import { FooterComponent } from './modules/footer/footer.component';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { FooterComponent } from './modules/footer/footer.component';
     AppRoutingModule,
     UiSwitchModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DropdownModule,
+    BrowserAnimationsModule
   ],
   providers: [MessageserviceService],
   bootstrap: [AppComponent]

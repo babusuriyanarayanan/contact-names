@@ -18,7 +18,7 @@
                             <div class="pos-col-2"> 
                                     <div> {{item.name}}</div>
                                     <div> {{item.email}}</div>
-                                    <div> {{item.phone}}</div>
+                                    <div> {{item.code? item.code.id:''}}{{item.phone}}</div>
                             </div>
                             <div class="pos-col-3"> 
                                     <div><ui-switch [checked]="item.favorite" (change)="onFavToggle(item, $event)"></ui-switch> </div>
@@ -45,9 +45,6 @@
                     <app-contact (valueChange)="onChange($event)" [formData]="formDataValue"></app-contact>
                   </div>
                   <div class="modal-footer"></div>
-                  <!-- <div class="modal-footer"> -->
-                    <!-- (click)="modal.close('Save click') -->
-                   <!-- <button type="button" class="btn btn-outline-dark" (click)="closeDialog($event)">Save</button>
-                  </div> -->
+                
             </div>
     </ng-template>
