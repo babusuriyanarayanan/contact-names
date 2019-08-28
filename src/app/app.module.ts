@@ -12,6 +12,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ContactComponent } from './modules/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageserviceService } from './services/messageservice.service';
+import { FooterComponent } from './modules/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MessageserviceService } from './services/messageservice.service';
     ContentComponent,
     SidebarComponent,
     CardlistComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
