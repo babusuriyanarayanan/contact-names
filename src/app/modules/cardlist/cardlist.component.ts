@@ -1,20 +1,23 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, AfterViewInit, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { MessageserviceService } from 'src/app/services/messageservice.service';
 import * as _ from "underscore";
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { ContentRef } from '@ng-bootstrap/ng-bootstrap/util/popup';
 
 @Component({
   selector: 'app-cardlist',
   templateUrl: './cardlist.component.html',
   styleUrls: ['./cardlist.component.scss']
 })
-export class CardlistComponent implements OnInit {
+export class CardlistComponent implements OnInit, AfterViewInit {
 
   private modalRef: NgbModalRef;
   formDataValue:any;
   savedContactArr:any = [];
   contactListArr:any = [];
   isFav:boolean = false;
+  @ViewChild("content",{static: false}) contentTemplate;
 
   constructor(private modalService: NgbModal, private messageService: MessageserviceService) { 
     
@@ -30,6 +33,17 @@ export class CardlistComponent implements OnInit {
           this.isFav = true;
       }
       this.getLocalStorage();
+    });
+  }
+
+  ngAfterViewInit() {
+    
+    disableBodyScroll(document.getElementById("scrollPos"));
+    this.messageService.currentMessage.subscribe((msg)=> {
+        if(msg === "modal") {
+            this.openDialog(this.contentTemplate);
+        }
+
     });
   }
 

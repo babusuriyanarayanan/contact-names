@@ -25,6 +25,9 @@
     .pos-pointer {
       display: inline-block;
     }
+    .mobile-plus {
+      display: inline-block;
+    }
 
   } 
 
@@ -34,4 +37,9 @@
       // max-width: 85px;
     }
 
+    .mobile-plus {
+      display: none;
+    }
+
   } 
+
