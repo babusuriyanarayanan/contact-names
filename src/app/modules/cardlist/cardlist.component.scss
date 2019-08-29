@@ -37,7 +37,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
     
 }
 .list-group {
-  overflow-y: scroll;
+    overflow-y: scroll;
     max-height: 80vh;
     -webkit-overflow-scrolling: touch;
 }
@@ -64,6 +64,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
     background-color: #f6f3ef;
     word-break: break-all;
   }
+
+  @media only screen and (max-width: 575.98px) {
+      .list-group {
+      max-height: 70vh !important;
+        
+    } 
+    
+
+}
+
+
+
+
   
 
   

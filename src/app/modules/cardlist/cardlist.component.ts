@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { MessageserviceService } from 'src/app/services/messageservice.service';
 import * as _ from "underscore";
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 @Component({
   selector: 'app-cardlist',
@@ -31,6 +32,11 @@ export class CardlistComponent implements OnInit {
       }
       this.getLocalStorage();
     });
+  }
+
+  ngAfterViewInit() {
+    
+    disableBodyScroll(document.getElementById("scrollPos"));
   }
 
   getLocalStorage() {
