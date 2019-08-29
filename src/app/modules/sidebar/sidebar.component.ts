@@ -34,7 +34,10 @@ export class SidebarComponent implements OnInit {
         this.liked = false;
         localStorage.setItem("currentEvent", "all");
         this.messageService.changeMessage("published");
+      } else if("modal"=== msg){
+        this.messageService.changeMessage("modal");
       } 
+
   }
 
 }
