@@ -27,7 +27,7 @@
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "inobounce": "^0.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-ui-switch": "^8.2.0",
     "popper.js": "^1.15.0",
     "primeicons": "^2.0.0",
